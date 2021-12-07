@@ -5,8 +5,13 @@
 
 <style>
 .card {
-	background-color:white;
-    color: #202142;
+    border-radius: 15px;
+    border: 1px white dashed;
+    padding: 20px 30px;
+    margin: 10px;
+    position: relative;
+    color:white;
     font-weight: 600;
+    background-color:darkslateblue;
 }
 </style>>
