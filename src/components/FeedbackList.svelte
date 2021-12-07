@@ -1,43 +1,22 @@
 <script>
-import {onMount, onDestroy} from 'svelte'
-import {FeedbackStore} from '../stores.js'
-import {fade, scale,slide} from 'svelte/transition'
-import FeedbackItem from './FeedbackItem.svelte'
-
-//remove export, since we're not catching feedback anymore
-let feedback = [];
-
-const unsubscribe = FeedbackStore.subscribe((data) => feedback = data)
-
-onMount(() => {
-    console.log('mounted')
-})
-
-onDestroy(() => {
-    // try removoing this after
-    unsubscribe()
-})
-
+  import { FeedbackStore } from "../stores.js";
+  import { fade, scale, slide } from "svelte/transition";
+  import FeedbackItem from "./FeedbackItem.svelte";
 </script>
 
 <h1>Svelte Wall</h1>
-
-{#if feedback.length > 0}
-{#each feedback as item (item.id)}
-
-<div in:scale out:slide>
-    <FeedbackItem item={item} on:delete-feedback/>
-</div>
-<!--  this 'on:delete-feedback' will be forwarded up to app.svelete, without creating and calling another createEventDispatcher. I only need to create that in the child component that initiates the event-->
-{/each}
+{#if $FeedbackStore.length > 0}
+  {#each $FeedbackStore as item (item.id)}
+    <div in:scale out:slide>
+      <FeedbackItem {item} />
+    </div>
+  {/each}
 {:else}
-    <h1 class="empty">Add some text!</h1>
-
+  <h1 in:fade class="empty">Add some text!</h1>
 {/if}
 
 <style>
-    .empty {
-        background-color:teal;
-    }
+  .empty {
+    background-color: teal;
+  }
 </style>
-

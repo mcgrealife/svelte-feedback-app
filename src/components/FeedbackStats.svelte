@@ -1,15 +1,13 @@
 <script>
-    export let count
-    export let average
+    import {FeedbackStore} from '../stores'
+
+    $: count = $FeedbackStore.length
+    $: average = $FeedbackStore.reduce((a, {rating}) => a+ rating, 0) / count
 </script>
 
-
 <div class="stats">
-
-
     <div>{count} Items</div>
-    <div>Average rating: {average}    </div>
-    
+    <div>Average rating: {average}</div>
 </div>
 
 
@@ -17,7 +15,6 @@
     .stats {
         display:flex;
         justify-content: space-between;
-        font-weight: 600;
-        
+        font-weight: 600;   
     }
 </style>

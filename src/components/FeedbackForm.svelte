@@ -1,15 +1,13 @@
 <script>
     import {v4 as uuidv4} from 'uuid'
     import Button from './Button.svelte'
-    import {createEventDispatcher} from 'svelte'
+    import {FeedbackStore} from '../stores.js'
 
     let text = ''
     let btnDisabled = true
     let min = 10
     let encouragement = ` You're Typing!!!! :)`
     $: secretMessage = ''
-
-    let dispatch = createEventDispatcher()
 
 
     const handleInput = () => {
@@ -27,9 +25,13 @@
             text: text,
             rating: Math.floor(Math.random()*10)
             }
-        dispatch('new-feedback',newFeedback)
+
+        FeedbackStore.update((data) =>
+        data = [newFeedback, ...data]
+        )
         text=''
         secretMessage=''
+        
         }
     }
 </script>
