@@ -5,7 +5,7 @@ export let feedback = [];
 
 </script>
 
-<h1>Welcome to the Wall</h1>
+<h1>Svelte Wall</h1>
 
 {#if feedback.length > 0}
 {#each feedback as item (item.id)}

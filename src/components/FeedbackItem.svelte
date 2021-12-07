@@ -48,5 +48,6 @@
   }
   .text-display {
     font-weight: 500;
-  }
+		overflow-wrap: break-word;
+	}
 </style>

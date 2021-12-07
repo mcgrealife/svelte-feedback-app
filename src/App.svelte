@@ -10,17 +10,17 @@ import { add_attribute } from 'svelte/internal';
   {
     id: 1,
     rating: 10,
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.',
+    text: 'Svelte is simple',
   },
   {
     id: 2,
     rating: 9,
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.',
+    text: 'Svelte is fast.',
   },
   {
     id: 3,
     rating: 8,
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.',
+    text: 'Svelte makes writing code a blast',
   },
 ]
 
@@ -28,16 +28,13 @@ $: count = feedback.length
 $: average = feedback.reduce((a, {rating}) => a+ rating, 0) / feedback.length
 
 const deleteItem = (theForwardedEvent) => {
-
-  let filteredItems = feedback.filter(item =>
+  feedback = feedback.filter(item =>
   item.id != theForwardedEvent.detail
   )
-feedback = filteredItems
 }
 
 const addItem = (e) => {
-feedback = [...feedback, e.detail]
-
+feedback = [e.detail,...feedback]
 }
 
 </script>

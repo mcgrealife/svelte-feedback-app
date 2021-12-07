@@ -26,9 +26,11 @@
             const newFeedback = {
             id: uuidv4(),
             text: text,
-            rating: 10
+            rating: Math.floor(Math.random()*10)
             }
         dispatch('new-feedback',newFeedback)
+        text=''
+        secretMessage=''
         }
     }
 </script>
