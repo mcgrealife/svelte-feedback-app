@@ -19,10 +19,7 @@
     }
 
     button:disabled {
-        background-color: darkslategray;
-        color: darkslategray;
-        background: none;
-        border: none;
+        opacity: 0.9;
 
     }
 </style>

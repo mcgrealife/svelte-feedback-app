@@ -4,6 +4,7 @@
   import FeedbackStats from './components/FeedbackStats.svelte'
   import Banner from './components/Banner.svelte'
   import FeedbackForm from './components/FeedbackForm.svelte'
+import { add_attribute } from 'svelte/internal';
 
   let feedback = [
   {
@@ -31,8 +32,11 @@ const deleteItem = (theForwardedEvent) => {
   let filteredItems = feedback.filter(item =>
   item.id != theForwardedEvent.detail
   )
-
 feedback = filteredItems
+}
+
+const addItem = (e) => {
+feedback = [...feedback, e.detail]
 
 }
 
@@ -42,7 +46,7 @@ feedback = filteredItems
 <main class='container'>
 
 <Banner/>
-<FeedbackForm/>
+<FeedbackForm on:new-feedback={addItem}/>
 <FeedbackStats {count} {average}/>
 <FeedbackList feedback={feedback} on:delete-feedback={deleteItem}/>
 <!-- this is called "event forwarding"-->

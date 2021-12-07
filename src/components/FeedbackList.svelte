@@ -5,7 +5,7 @@ export let feedback = [];
 
 </script>
 
-<h1>Feedback List</h1>
+<h1>Welcome to the Wall</h1>
 
 {#if feedback.length > 0}
 {#each feedback as item (item.id)}
@@ -13,7 +13,7 @@ export let feedback = [];
 <!--  this 'on:delete-feedback' will be forwarded up to app.svelete, without creating and calling another createEventDispatcher. I only need to create that in the child component that initiates the event-->
 {/each}
 {:else}
-    <h1 class="empty">Add some feedback!</h1>
+    <h1 class="empty">Add some text!</h1>
 
 {/if}
 
