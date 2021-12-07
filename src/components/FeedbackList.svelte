@@ -1,8 +1,22 @@
 <script>
-import FeedbackItem from './FeedbackItem.svelte'
+import {onMount, onDestroy} from 'svelte'
+import {FeedbackStore} from '../stores.js'
 import {fade, scale,slide} from 'svelte/transition'
+import FeedbackItem from './FeedbackItem.svelte'
 
-export let feedback = [];
+//remove export, since we're not catching feedback anymore
+let feedback = [];
+
+const unsubscribe = FeedbackStore.subscribe((data) => feedback = data)
+
+onMount(() => {
+    console.log('mounted')
+})
+
+onDestroy(() => {
+    // try removoing this after
+    unsubscribe()
+})
 
 </script>
 

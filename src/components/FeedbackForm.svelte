@@ -7,7 +7,6 @@
     let btnDisabled = true
     let min = 10
     let encouragement = ` You're Typing!!!! :)`
-    console.log(encouragement.length)
     $: secretMessage = ''
 
     let dispatch = createEventDispatcher()

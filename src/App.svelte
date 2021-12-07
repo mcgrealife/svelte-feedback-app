@@ -4,25 +4,26 @@
   import FeedbackStats from './components/FeedbackStats.svelte'
   import Banner from './components/Banner.svelte'
   import FeedbackForm from './components/FeedbackForm.svelte'
-import { add_attribute } from 'svelte/internal';
+  
 
   let feedback = [
-  {
-    id: 1,
-    rating: 10,
-    text: 'Svelte is simple',
-  },
-  {
-    id: 2,
-    rating: 9,
-    text: 'Svelte is fast.',
-  },
-  {
-    id: 3,
-    rating: 8,
-    text: 'Svelte makes writing code a blast',
-  },
-]
+        {
+          id: 1,
+          rating: 10,
+          text: 'Svelte is simple',
+        },
+        {
+          id: 2,
+          rating: 9,
+          text: 'Svelte is fast.',
+        },
+        {
+          id: 3,
+          rating: 8,
+          text: 'Svelte makes writing code a blast',
+        },
+      ]
+
 
 $: count = feedback.length
 $: average = feedback.reduce((a, {rating}) => a+ rating, 0) / feedback.length
@@ -45,7 +46,7 @@ feedback = [e.detail,...feedback]
 <Banner/>
 <FeedbackForm on:new-feedback={addItem}/>
 <FeedbackStats {count} {average}/>
-<FeedbackList feedback={feedback} on:delete-feedback={deleteItem}/>
+<FeedbackList on:delete-feedback={deleteItem}/>
 <!-- this is called "event forwarding"-->
 </main>
 
