@@ -44,6 +44,7 @@
     background: none;
     border: none;
 		cursor: pointer;
+		font-size: x-large;
   }
   .text-display {
     font-weight: 500;

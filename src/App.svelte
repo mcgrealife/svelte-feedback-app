@@ -3,6 +3,7 @@
   import dispatch from './components/FeedbackItem.svelte'
   import FeedbackStats from './components/FeedbackStats.svelte'
   import Banner from './components/Banner.svelte'
+  import FeedbackForm from './components/FeedbackForm.svelte'
 
   let feedback = [
   {
@@ -41,6 +42,7 @@ feedback = filteredItems
 <main class='container'>
 
 <Banner/>
+<FeedbackForm/>
 <FeedbackStats {count} {average}/>
 <FeedbackList feedback={feedback} on:delete-feedback={deleteItem}/>
 <!-- this is called "event forwarding"-->

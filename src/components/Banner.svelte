@@ -8,5 +8,4 @@
       font-weight: lighter;
       font-style: italic;
     }
-    </style>
-    
+</style>

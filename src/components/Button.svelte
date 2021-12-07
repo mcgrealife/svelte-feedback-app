@@ -1,0 +1,30 @@
+<script>
+
+    export let type = 'button'
+    export let disabled
+</script>
+
+<button {type} {disabled}>
+    <slot></slot>
+</button>
+
+<style>
+    button {
+
+    }
+
+    button:hover {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
+
+    button:disabled {
+        background-color: darkslategray;
+        color: darkslategray;
+        background: none;
+        border: none;
+
+    }
+</style>
+
+
